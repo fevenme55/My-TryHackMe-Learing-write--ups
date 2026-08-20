@@ -1,0 +1,108 @@
+# TryHackMe | Cloud Computing Fundamentals
+
+**Room Link:** [Cloud Computing Fundamentals](https://tryhackme.com/room/cloudcomputingfundamentals)
+**Difficulty:** Easy
+**Category:** Computer Fundamentals / Cloud
+
+## Overview
+
+This room introduces the fundamentals of cloud computing — what it is, why businesses use it, the different service and deployment models, and how to deploy and manage cloud resources hands-on using a simulated AWS-style console.
+
+## Key Concepts Learned
+
+### What is Cloud Computing?
+Cloud computing lets you run applications using computing resources over the internet instead of relying on a single physical machine. This solves common problems like limited capacity, high hardware costs, and difficulty scaling to a growing number of users.
+
+### Evolution to the Cloud
+Cloud computing didn't appear overnight — it evolved through several stages:
+
+| Era | Timeframe | Key Traits |
+|---|---|---|
+| Physical Servers | 1960s–Early 2000s | One server = one job, expensive, slow to scale |
+| Virtualization | 1999–2006 | Multiple virtual servers on one machine, better utilization |
+| Automation & Remote Management | 2003–2006 | Servers managed over the internet, early automation |
+| Cloud Computing (AWS Launch) | 2006 | Rent virtual resources on demand, no hardware ownership |
+| Modern Cloud Era | 2012–Today | AWS, Azure, GCP, containers, global-scale platforms |
+
+### Cloud Benefits & Characteristics
+- **Scalability** – Easily scale resources up or down as needs change
+- **On-demand self-service** – Create/remove resources instantly
+- **Pay only for what you use** – Usage-based billing, no upfront cost
+- **Security** – Providers protect infrastructure with strong controls
+- **High availability** – Applications stay up even if part of the system fails
+- **Global access** – Applications reachable by users anywhere
+
+### Cloud Deployment Types
+- **Public Cloud** – Affordable, scalable, no infra management (most common choice for most use cases)
+- **Private Cloud** – Used by banks/healthcare/government for greater control and compliance
+- **Hybrid Cloud** – Mix of public and private, e.g., e-commerce keeping sensitive data private while scaling publicly during demand spikes
+
+### Cloud Service Models (IaaS vs PaaS vs SaaS)
+Think of it like renting a place to live:
+
+| Model | Analogy | Description |
+|---|---|---|
+| **IaaS** | Renting an empty apartment | You rent basic resources (servers, storage, networking); you manage the OS and app |
+| **PaaS** | Renting a semi-furnished apartment | Provider manages infrastructure + OS; you focus on building/running the app |
+| **SaaS** | Staying in a hotel | Fully managed software, accessed via browser/app (e.g., Gmail, Zoom) |
+
+### Major Cloud Vendors
+- **AWS** – Industry leader, most extensive offerings and global reach
+- **Microsoft Azure** – Strong in enterprise and hybrid cloud environments
+- **Google Cloud Platform (GCP)** – Known for data analytics, AI, and ML tools
+- **Alibaba Cloud** – Major player in Asia
+
+## Hands-On: Deploying a Cloud Instance
+
+Using a simulated AWS-style console, I deployed and managed a small cloud environment consisting of EC2-style virtual machine instances.
+
+### Basic Terminology
+- **EC2 (Virtual Computer/Server):** A virtual machine in the cloud with CPU/RAM, capable of running applications
+- **Instance Type:** Determines compute power (e.g., t3.micro, t3.small, m5.large) — bigger instances = more power + higher cost
+
+### Environment Setup
+1. Set the region to `us-east-1 (N. Virginia)`
+2. Created an application interface VM:
+   - Name: `application-interface`
+   - Type: `t3.micro`
+   - Status: `running`
+3. Created two study/testing machines for hands-on practice:
+   - `study-machine-1` — Type: `m5.large`, Status: `running`
+   - `study-machine-2` — Type: `m5.large`, Status: `running`
+
+### Billing Analysis
+Reviewed the Billing section to understand cost impact of running instances:
+
+| Instance | Type | Status | Monthly Cost |
+|---|---|---|---|
+| web-1 | t3.micro | running | 10.0 |
+| db-1 | t3.micro | running | 10.0 |
+| application-interface | t3.micro | running | 10.0 |
+| study-machine-1 | m5.large | running | 70.0 |
+| study-machine-2 | m5.large | running | 70.0 |
+
+**Total (all running):** 170.0 credits/month
+
+After stopping `study-machine-1` and `study-machine-2` (since only running VMs incur cost):
+
+**Total estimated:** 30.0 credits/month
+
+**Pricing Reference:**
+- t3.micro → 10 credits/month
+- t3.small → 18 credits/month
+- m5.large → 70 credits/month
+- Stopped VM → 0 credits
+
+### Q&A Answers
+| Question | Answer |
+|---|---|
+| Total cost if study-machine-1 and study-machine-2 are stopped | **30** |
+| Monthly cost of an m5.large instance | **70** |
+| Total cost if only the new instances are running | **150** |
+| Total cost with a third t3a.small study machine added | **188** |
+
+## Key Takeaway
+
+This exercise demonstrated how easily cloud costs can be managed by starting/stopping resources on demand — a core principle of the cloud's pay-as-you-go model. It also reinforced the IaaS model in practice, since managing full access to the OS is essential for cyber security work like installing tools and simulating attacks/defenses.
+
+## Room Progress: ✅ 100% Complete
